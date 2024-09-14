@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Resume</title>
+    <style>
+        body {
+            background: linear-gradient(120deg, #ffac40, #9d81fa);
+            font-family: Arial, sans-serif;
+        }
+        h1, h2, h3 {
+            color: rgb(74, 74, 173);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        th {
+            text-align: left;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            background-color: #007bff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        #resume {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1><b>Personal Information</b></h1>
+  
+    <form id="resume-form">
+        <div class="form-group">
+            <label for="name-input">Name:</label>
+            <input type="text" id="name-input" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+            <label for="email-input">Email:</label>
+            <input type="email" id="email-input" placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+            <label for="phone-input">Phone:</label>
+            <input type="tel" id="phone-input" placeholder="Enter your phone number">
+        </div>
+        <div class="form-group">
+            <label for="intro-input">Introduction:</label>
+            <textarea id="intro-input" rows="3" placeholder="Write a brief introduction"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="matric-input">Matric:</label>
+            <input type="text" id="matric-input" placeholder="Enter your matriculation school">
+        </div>
+        <div class="form-group">
+            <label for="intermediate-input">Intermediate:</label>
+            <input type="text" id="intermediate-input" placeholder="Enter your intermediate school">
+        </div>
+        <div class="form-group">
+            <label for="skills-input">Skills (comma-separated):</label>
+            <input type="text" id="skills-input" placeholder="Enter your skills">
+        </div>
+        <div class="form-group">
+            <label for="experience-input">Experience:</label>
+            <textarea id="experience-input" rows="3" placeholder="Describe your experience"></textarea>
+        </div>
+        <button type="button" onclick="updateResume()">Generate your Resume</button>
+    </form>
+
+    <div id="resume"></div>
+
+    <script>
+        function updateResume() {
+            // Get values from the form
+            const name = document.getElementById('name-input').value;
+            const email = document.getElementById('email-input').value;
+            const phone = document.getElementById('phone-input').value;
+            const introduction = document.getElementById('intro-input').value;
+            const matric = document.getElementById('matric-input').value;
+            const intermediate = document.getElementById('intermediate-input').value;
+            const skills = document.getElementById('skills-input').value;
+            const experience = document.getElementById('experience-input').value;
+            
+            // Create resume content
+            const resumeContent = `
+                <h2>Resume</h2>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Phone:</strong> ${phone}</p>
+                <p><strong>Introduction:</strong> ${introduction}</p>
+                <p><strong>Matric:</strong> ${matric}</p>
+                <p><strong>Intermediate:</strong> ${intermediate}</p>
+                <p><strong>Skills:</strong> ${skills}</p>
+                <p><strong>Experience:</strong> ${experience}</p>
+            `;
+            
+            // Display resume content
+            document.getElementById('resume').innerHTML = resumeContent;
+        }
+    </script>
+</body>
+</html>
